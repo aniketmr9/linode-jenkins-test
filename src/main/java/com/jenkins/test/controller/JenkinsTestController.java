@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class JenkinsTestController {
 	@RequestMapping("/")
 	public String test() {
-		return "Hello Jenkins, Greetings";
+		return "Hello Ubuntu Jenkins, Greetings";
 	}
 }
