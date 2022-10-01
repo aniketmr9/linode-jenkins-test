@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class JenkinsTestController {
 	@RequestMapping("/")
 	public String test() {
-		return "{ \"title\" : \"Hello Git!\"}";
+		return "{ \"title\" : \"Welcome User!\"}";
 	}
 }
