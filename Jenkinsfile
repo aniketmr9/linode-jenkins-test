@@ -30,14 +30,14 @@ pipeline {
         }   */
         stage('Docker run image') {
             steps {
-                sh 'if [ ! "$(docker ps -q -f name=test)" ]; then
+                sh '''if [ ! "$(docker ps -q -f name=test)" ]; then
                     if [ "$(docker ps -aq -f status=exited -f name=test)" ]; then
                         # cleanup
                         docker rm test
                     fi
                     # run your container
                     docker run -d -p 8085:8085 --name test aniketmr9/linode-jenkins-test
-                fi'
+                fi'''
             }
         }        
     }
