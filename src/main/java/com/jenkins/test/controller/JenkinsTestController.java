@@ -21,6 +21,6 @@ public class JenkinsTestController {
 		formatter.setTimeZone(TimeZone.getTimeZone("EST"));
 		String currentESTDateTime = formatter.format(date);  
 		//return "{ \"IST\" : \""+currentISTDateTime+"\"}";
-		return "{ \"LOCAL\" : \""+currentISTDateTime+"\", \"EST\" : \""+currentESTDateTime+"\"}";
+		return "{ \"SERVER\" : \""+currentISTDateTime+"\", \"EST\" : \""+currentESTDateTime+"\"}";
 	}
 }
