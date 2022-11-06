@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Docker build') {
             steps {
-                sh 'mvn spring-boot:build-image'
+                sh 'docker build -t aniketmr9/linode-jenkins-test .'
             }
         }
     }
