@@ -18,5 +18,10 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
+        stage('Docker build') {
+            steps {
+                sh 'mvn spring-boot:build-image'
+            }
+        }
     }
 }
