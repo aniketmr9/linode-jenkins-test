@@ -23,9 +23,23 @@ pipeline {
                 sh 'docker build -t aniketmr9/linode-jenkins-test:latest .'
             }
         }
-        stage('Docker run image') {
+        /*stage('Docker run image') {
             steps {
                 sh 'docker run -d -p 8085:8085 --name test aniketmr9/linode-jenkins-test'
+            }
+        }   */
+        stage('Docker run image') {
+            steps {
+                sh '
+                if [ ! "$(docker ps -q -f name=test)" ]; then
+                    if [ "$(docker ps -aq -f status=exited -f name=test)" ]; then
+                        # cleanup
+                        docker rm test
+                    fi
+                    # run your container
+                    docker run -d -p 8085:8085 --name test aniketmr9/linode-jenkins-test
+                fi
+                '
             }
         }        
     }
